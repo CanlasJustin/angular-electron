@@ -1,6 +1,6 @@
 {
   "name": "angular-electron",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "Shreamy",
   "description": "Button Update",
   "main": "main.js",
@@ -35,7 +35,8 @@
       "dist",
       "build",
       "node_modules",
-      "src"
+      "src",
+      "./src/preload.js"
     ]
   },
   "private": true,
