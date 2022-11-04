@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, dialog, BrowserWindow } = require('electron');
 const path = require('path');
 const { autoUpdater } = require("electron-updater");
 const isDev = require("electron-is-dev");
@@ -24,14 +24,18 @@ function createWindow () {
   }
 }
 
-app.whenReady().then(() => {
-  createWindow()
+app.whenReady().then(createWindow);
 
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow()
-    }
-  })
+app.on("window-all-closed", () => {
+  if(process.platform !== "darwin"){
+    app.quit();
+  }
+});
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
+  }
 })
 
 autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
@@ -58,11 +62,5 @@ autoUpdater.on("update-downloaded", (_event, releaseNotes, releaseName) => {
   dialog.showMessageBox(dialogOpts, (returnValue) => {
     if(returnValue.response === 0) autoUpdater.quitAndInstall();
   })
-
 });
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
-})
