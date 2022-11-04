@@ -1,8 +1,8 @@
 {
   "name": "angular-electron",
-  "version": "0.0.1",
-  "author": "Name",
-  "description": "Hello World",
+  "version": "0.0.2",
+  "author": "Shreamy",
+  "description": "Button Update",
   "main": "main.js",
   "scripts": {
     "ng": "ng",
@@ -12,7 +12,7 @@
     "test": "ng test",
     "electron": "ng build && electron .",
     "start:electron": "ng build --base-href ./ && electron main.js",
-    "build:electron": "ng build && electron-builder --win --publish always"
+    "build:electron": "set GH_TOKEN=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 && ng build && electron-builder --win --publish always"
   },
   "build": {
     "win": {
@@ -26,8 +26,8 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "moraLorenzo",
-        "repo": "electron-app"
+        "owner": "CanlasJustin",
+        "repo": "angular-electron"
       }
     ],
     "files": [
