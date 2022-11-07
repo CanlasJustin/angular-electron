@@ -66,3 +66,8 @@ autoUpdater.on("update-downloaded", (_event, releaseNotes, releaseName) => {
   })
 });
 
+autoUpdater.on('error', (message) => {
+  console.error('There was a problem updating the application')
+  console.error(message)
+})
+
