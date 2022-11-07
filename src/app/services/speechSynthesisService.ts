@@ -13,7 +13,7 @@ export class SpeechSynthesisService {
     public utterance!: SpeechSynthesisUtterance;
     public utterance2!: SpeechSynthesisUtterance;
 
-    public initSpeechSynthesis() {
+    public initSpeechSynthesis(): void {
         if ('speechSynthesis' in window) {
             console.log('speechSynthesis in window');
             this.speechSynthesis = window.speechSynthesis;
@@ -68,7 +68,6 @@ export class SpeechSynthesisService {
         return this.utterance2;
     }
 
-
     public async utterSpeech(text: string): Promise<SpeechSynthesisUtterance> {
         this.speechSynthesis.cancel(SpeechSynthesisUtterance);
         this.utterance = new SpeechSynthesisUtterance(text);
@@ -84,7 +83,6 @@ export class SpeechSynthesisService {
       const value = window.localStorage.getItem(opt) || "1";
       return Number(value);
     } 
-
 
     public async readSection(id: string): Promise<void> {
         this.isCompleted = false;
@@ -111,11 +109,12 @@ export class SpeechSynthesisService {
         console.log("paused");
       }
 
-      public resume() {
+      public resume(): void {
         this.isCompleted = false;
         this.speechSynthesis.resume(this.utterance);
         this.isPaused = false;
       }
+
       public async stop(): Promise<void> {
         this.speechSynthesis.cancel(this.utterance);
         this.isPaused = false;
