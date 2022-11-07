@@ -1,6 +1,6 @@
 {
   "name": "angular-electron",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "author": "Shreamy",
   "description": "Button Update",
   "main": "main.js",
@@ -15,6 +15,12 @@
     "build:electron": "set GH_TOKEN=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 && ng build && electron-builder --win --publish always"
   },
   "build": {
+    "appId": "HelloWOrld",
+    "productName": "Angular-Electron",
+    "directories": {
+      "output": "electron-build",
+      "buildResources": "build-assets"
+    },
     "win": {
       "icon": "./src/icon.png",
       "publish": [

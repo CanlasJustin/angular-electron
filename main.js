@@ -16,7 +16,7 @@ function createWindow () {
   win.loadFile('./dist/angular-electron/index.html')
 
   if(isDev){
-    win.webContents.openDevTools({mode: "detach"});
+    //win.webContents.openDevTools({mode: "detach"});
     // require()
   }
   
