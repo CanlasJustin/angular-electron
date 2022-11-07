@@ -41,6 +41,7 @@ app.on('activate', () => {
 })
 
 autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
+  console.log("update available");
 	const dialogOpts = {
 		type: 'info',
 		buttons: ['Ok'],
