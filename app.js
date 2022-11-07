@@ -63,7 +63,10 @@ autoUpdater.on("update-downloaded", (_event, releaseNotes, releaseName) => {
     detail: 'A new version has been installed. Restart the application to apply the updates.'
   }
   dialog.showMessageBox(dialogOpts, (returnValue) => {
-    if(returnValue.response === 0) autoUpdater.quitAndInstall();
+    if(returnValue.response === 0) {
+      autoUpdater.quitAndInstall();
+      app.exit();
+    }
   })
 });
 
