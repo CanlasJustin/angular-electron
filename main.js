@@ -1,5 +1,5 @@
-const { app, dialog, BrowserWindow } = require('electron');
 const path = require('path');
+const { app, dialog, BrowserWindow } = require('electron');
 const { autoUpdater } = require("electron-updater");
 const isDev = require("electron-is-dev");
 
@@ -13,7 +13,8 @@ function createWindow () {
     }
   })
 
-  win.loadFile('./dist/angular-electron/index.html')
+  //win.loadFile('./dist/angular-electron/index.html')
+  win.loadFile(path.join(__dirname, 'dist/angular-electron/index.html'))
 
   if(isDev){
     //win.webContents.openDevTools({mode: "detach"});
